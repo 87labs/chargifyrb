@@ -2,9 +2,11 @@
 
 require "bundler/setup"
 
-require "simplecov"
-SimpleCov.start do
-  add_filter %r{^/spec/}
+unless ENV["COVERAGE"].nil?
+  require "simplecov"
+  SimpleCov.start do
+    add_filter %r{^/spec/}
+  end
 end
 
 require "chargify"
