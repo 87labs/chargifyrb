@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Chargifyrb
+module Chargify
   class Client < API
-    autoload(:Subscriptions, "chargifyrb/client/subscriptions")
+    autoload(:Subscriptions, "chargify/client/subscriptions")
 
     include Subscriptions
   end

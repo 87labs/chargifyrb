@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require "forwardable"
-require "chargifyrb/connection"
-require "chargifyrb/request"
+require "chargify/connection"
+require "chargify/request"
 
-module Chargifyrb
+module Chargify
   class API
     extend Forwardable
     include Connection

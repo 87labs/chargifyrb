@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Chargifyrb do
+RSpec.describe Chargify do
   it "has a version number" do
-    expect(Chargifyrb::VERSION).not_to be_nil
+    expect(Chargify::VERSION).not_to be_nil
   end
 
   describe ".configure" do

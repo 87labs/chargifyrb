@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Chargifyrb
+module Chargify
   module Request
     def get(path)
       request(:get, path)

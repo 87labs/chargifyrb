@@ -7,7 +7,7 @@ SimpleCov.start do
   add_filter %r{^/spec/}
 end
 
-require "chargifyrb"
+require "chargify"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

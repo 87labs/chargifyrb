@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/chargifyrb/version"
+require_relative "lib/chargify/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "chargifyrb"
-  spec.version       = Chargifyrb::VERSION
+  spec.version       = Chargify::VERSION
   spec.authors       = ["Rafael Macedo"]
   spec.email         = ["macedo@87labs.com"]
 

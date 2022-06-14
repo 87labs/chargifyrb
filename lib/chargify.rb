@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 require "faraday"
-require "chargifyrb/api"
-require "chargifyrb/client"
-require "chargifyrb/configuration"
-require "chargifyrb/version"
+require "chargify/api"
+require "chargify/client"
+require "chargify/configuration"
+require "chargify/version"
 
-module Chargifyrb
+module Chargify
   def self.client
     Client.new(config)
   end

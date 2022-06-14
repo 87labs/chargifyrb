@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Chargifyrb
+module Chargify
   module Connection
     private
 

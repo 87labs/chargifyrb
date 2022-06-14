@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Chargifyrb::Configuration do
+RSpec.describe Chargify::Configuration do
   subject(:config) do
     described_class.new(api_key: api_key, subdomain: subdomain)
   end

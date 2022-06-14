@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Chargifyrb
+module Chargify
   class Configuration
     attr_accessor :adapter, :api_key, :password, :subdomain, :user_agent
 
@@ -8,7 +8,7 @@ module Chargifyrb
       adapter: Faraday.default_adapter,
       api_key: nil,
       subdomain: nil,
-      user_agent: %(Chargifyrb Ruby Gem #{Chargifyrb::VERSION})
+      user_agent: %(Chargifyrb Ruby Gem #{Chargify::VERSION})
     )
       @adapter = adapter
       @api_key = api_key
