@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 require "bundler/setup"
+
+require "simplecov"
+SimpleCov.start do
+  add_filter %r{^/spec/}
+end
+
 require "chargifyrb"
 
 RSpec.configure do |config|
