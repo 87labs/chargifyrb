@@ -3,8 +3,9 @@
 module Chargify
   class Client
     module Subscriptions
-      def subscriptions
-        get("subscriptions")
+      def read_subscription(id)
+        response = get %(subscriptions/#{id})
+        response.subscription
       end
     end
   end

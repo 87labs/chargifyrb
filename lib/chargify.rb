@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require "faraday"
-require "chargify/api"
+require "representable"
+
 require "chargify/client"
 require "chargify/configuration"
-require "chargify/version"
+require "chargify/exceptions"
 
 module Chargify
   def self.client

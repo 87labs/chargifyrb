@@ -15,6 +15,7 @@ module Chargify
     def_delegators :@config,
                    :adapter,
                    :api_key,
+                   :enable_request_logger,
                    :password,
                    :site,
                    :subdomain,

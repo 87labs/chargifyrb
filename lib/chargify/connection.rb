@@ -6,10 +6,9 @@ module Chargify
 
     def connection
       Faraday.new(options) do |builder|
-        builder.use Faraday::Request::Authorization, :basic, api_key, password
-        builder.use Faraday::Response::Logger
-        builder.use Faraday::Response::Json
-        builder.use Faraday::Response::RaiseError
+        builder.request :authorization, :basic, api_key, password
+        builder.request :json
+        builder.response :logger if enable_request_logger
 
         builder.adapter adapter
       end

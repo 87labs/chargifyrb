@@ -29,7 +29,7 @@ RSpec.describe Chargify do
 
   describe ".respond_to_missing?" do
     context "when client respond to method" do
-      it { expect(described_class).to be_respond_to_missing(:subscriptions) }
+      it { expect(described_class).to be_respond_to_missing(:read_subscription) }
     end
 
     context "when client does not respond to method" do

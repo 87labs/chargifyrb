@@ -30,11 +30,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday"
-  spec.add_dependency "httpx"
+  spec.add_runtime_dependency "faraday"
+  spec.add_runtime_dependency "multi_json"
+  spec.add_runtime_dependency "representable"
 
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "rubocop-rspec"
   spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "webmock"
 end
