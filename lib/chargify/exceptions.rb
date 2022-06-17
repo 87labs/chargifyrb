@@ -2,11 +2,13 @@
 
 module Chargify
   class ConnectionError < StandardError
-    attr_reader :response
+    attr_reader :details, :status
 
     def initialize(response, message = nil)
-      @response = response
+      @details = JSON.parse(response.body)["errors"]
+      @details = response.reason_phrase if @details && @details.empty?
       @message = message
+      @status = response.status
 
       super(to_s)
     end
@@ -14,12 +16,9 @@ module Chargify
     def to_s
       return @message if @message
 
-      message = +"Failed."
-      message << " Response code = #{response.status}." if response.respond_to?(:status)
-      message << " Response message = #{response.reason_phrase}." if response.respond_to?(:reason_phrase)
-      message
+      %(Failed. Response code = #{status}. Response message = #{details})
     end
   end
 
-  NotFound = Class.new(ConnectionError)
+  NotFoundError = Class.new(ConnectionError)
 end

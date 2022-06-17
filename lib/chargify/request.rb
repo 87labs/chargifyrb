@@ -4,16 +4,20 @@ require "chargify/models/response"
 
 module Chargify
   module Request
-    def get(path)
-      request(:get, path)
+    def get(path, options = {})
+      request(:get, path, options)
     end
 
     private
 
-    def request(method, path)
+    def request(method, path, options)
       handle_response(
         connection.send(method) do |request|
-          request.url path
+          case method
+          when :get
+            request.url(path)
+            request.params = options
+          end
         end
       )
     end
@@ -23,7 +27,7 @@ module Chargify
       when 200...400
         ResponseRepresenter.new(Response.new).from_json(response.body)
       when 404
-        raise NotFound, response
+        raise NotFoundError, response
       else
         raise ConnectionError.new(response, "Unknown response code: #{response.code}")
       end

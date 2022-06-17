@@ -45,7 +45,7 @@ RSpec.describe Chargify::Client do
       it {
         expect do
           client.read_subscription(1234)
-        end.to raise_error Chargify::NotFound
+        end.to raise_error Chargify::NotFoundError
       }
     end
   end
