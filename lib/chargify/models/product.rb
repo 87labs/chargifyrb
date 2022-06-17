@@ -3,8 +3,6 @@
 module Chargify
   Product = Class.new(OpenStruct)
 
-  ProductFamily = Class.new(OpenStruct)
-
   PublicSignupPages = Class.new(OpenStruct)
 
   class ProductRepresenter < Representable::Decorator
@@ -25,15 +23,7 @@ module Chargify
     property :interval_unit
     property :name
     property :price_in_cents
-    property :product_family, class: ProductFamily do
-      property :accounting_code
-      property :created_at
-      property :description
-      property :handle
-      property :id
-      property :name
-      property :updated_at
-    end
+    property :product_family, decorator: ProductFamilyRepresenter, class: ProductFamily
     property :product_price_point_handle
     property :product_price_point_id
     property :product_price_point_name
