@@ -4,8 +4,10 @@ require "chargify/api"
 
 module Chargify
   class Client < API
-    autoload(:Subscriptions, "chargify/client/subscriptions")
+    autoload :Products,      "chargify/client/products"
+    autoload :Subscriptions, "chargify/client/subscriptions"
 
+    include Products
     include Subscriptions
   end
 end
