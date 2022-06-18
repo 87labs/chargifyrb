@@ -9,7 +9,7 @@ require "chargify/exceptions"
 
 module Chargify
   def self.client
-    Client.new(config)
+    @client ||= Client.new(config)
   end
 
   def self.configure

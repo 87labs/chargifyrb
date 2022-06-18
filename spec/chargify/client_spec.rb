@@ -2,19 +2,22 @@
 
 RSpec.describe Chargify::Client do
   subject(:client) do
-    described_class.new(config)
-  end
-
-  let(:config) do
-    Chargify::Configuration.new(api_key: api_key, subdomain: subdomain)
+    Chargify.client
   end
 
   let(:api_key) { "key" }
   let(:subdomain) { "test" }
 
+  before do
+    Chargify.configure do |c|
+      c.api_key = api_key
+      c.subdomain = subdomain
+    end
+  end
+
   describe "#read_subscription" do
     before do
-      stub_request(:get, "https://test.chargify.com/subscriptions/1234")
+      stub_request(:get, %(#{client.site}/subscriptions/1234))
         .with(
           headers: {
             "Accept" => "application/json; charset=utf-8",
@@ -34,7 +37,7 @@ RSpec.describe Chargify::Client do
 
       it {
         expect(
-          a_request(:get, "https://test.chargify.com/subscriptions/1234")
+          a_request(:get, %(#{client.site}/subscriptions/1234))
         ).to have_been_made.once
       }
     end

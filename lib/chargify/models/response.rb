@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "chargify/models/coupon"
-require "chargify/models/product_family"
-require "chargify/models/product"
-require "chargify/models/subscription"
-
 module Chargify
   Response = Class.new(OpenStruct)
 
